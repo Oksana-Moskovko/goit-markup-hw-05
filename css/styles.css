@@ -472,9 +472,6 @@ a {
 
 .footer-form {
   display: flex;
-}
-
-.footer-label {
   gap: 24px;
 }
 
@@ -482,7 +479,7 @@ a {
   width: 264px;
   height: 40px;
 
-  border-radius: 1px solid #ffffff;
+  border: 1px solid #ffffff;
   border-radius: 4px;
   background-color: transparent;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15); 
@@ -495,7 +492,8 @@ a {
   padding-left: 16px;
 }
 
-.footer-input::placeholder {
+.footer-input:hover::placeholder,
+.footer-input:focus::placeholder {
   color: #ffffff;
 }
 
@@ -548,11 +546,11 @@ a {
   visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .backdrop.is-open {
+.backdrop.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-} */
+}
 
 .nodal {
   position: absolute;
@@ -597,13 +595,15 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.1); 
 
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-close:hover,
 .btn-close:focus {
   border: none; 
   background-color: #404bbf;
-  fill: #fff;
+  fill: #ffffff;
 }
 
 .icon-close {
@@ -652,11 +652,8 @@ a {
 
 
 .text-string:hover,
-.text-string:focus,
-.icon-form:hover,
-.icon-form:focus {
-  border: 1px solid #4d5ae5;
-  fill: #4d5ae5;
+.text-string:focus {
+  border-color: 1px solid #4d5ae5;
 }
 
 .icon-form {
@@ -665,6 +662,10 @@ a {
   top: 50%;
   transform: translateY(-50%);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-string:focus .icon-form {
+  fill: #4d5ae5;
 }
 
 .text-comment:hover,
@@ -687,7 +688,7 @@ a {
 
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: rgba(46, 47, 66, 0.4);
 
@@ -746,12 +747,20 @@ input[type="checkbox"]:checked + span {
 .btn-send {
   border-radius: 4px;
   padding: 16px 32px;
-  width: 169px;
+  min-width: 169px;
   height: 56px;
+  display: block; 
+
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #ffffff;
 
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background: #4d5ae5;
   border: none;
+  cursor: pointer;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
